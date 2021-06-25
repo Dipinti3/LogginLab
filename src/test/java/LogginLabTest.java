@@ -23,12 +23,23 @@ public class LogginLabTest {
 
         for (Integer i = 1; i <= finalLimit; i++) {
             if (lab.thresholdExceeds(i)) {
-                logger.log(Level.INFO, "Threshold not reached! It is "+i);
+                logger.log(Level.INFO, "Threshold not reached! It is " + i);
                 assertTrue(lab.thresholdExceeds(i));
-            } else {
+            }
+
+            // Write a test for the method in the Test class.
+
+            if(lab.thresholdReached(i)){
+                logger.log(Level.INFO, "Threshold reached! It is "+i);
+                assertTrue(lab.thresholdExceeds(i));
+            }
+            else {
                 logger.log(Level.INFO, "Threshold finally reached!");
                 assertFalse(lab.thresholdExceeds(i));
             }
         }
+
+        // Write a test for the method in the Test class.
+
     }
 }
